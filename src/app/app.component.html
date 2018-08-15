@@ -1,9 +1,5 @@
-<div class="header">
-<h1>Welcome, {{userName}}!</h1>
-<form>
-  <input [(ngModel)]="userName" type="text" name="user">
-</form>
-</div>
+<div class="parallax">
 <app-tap-room [childKegList]="masterKegList" (clickSender)="editKeg($event)"></app-tap-room>
-<app-edit-keg [childSelectedKeg]="selectedKeg" (clickedDone)="finishedEditing()"></app-edit-keg>
+<app-edit-keg [childSelectedKegEdit]="selectedKeg" (clickedDone)="finishedEditing()"></app-edit-keg>
 <app-new-keg (sendKeg)="addKeg($event)"></app-new-keg>
+</div>

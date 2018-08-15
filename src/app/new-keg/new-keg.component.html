@@ -1,26 +1,26 @@
 <div class="stack">
-  <div class="newKeg">
-   <h1>New Keg</h1>
+  <div class="newKeg card">
+   <h1>Add a new brew</h1>
    <div>
-   <label>Brew Name:</label>
-   <input #newName>
+   <label>Name:</label>
+   <input #newName placeholder="Drop Top Amber Ale">
   </div>
   <div>
    <label>Brand:</label>
-   <input #newBrand>
+   <input #newBrand placeholder="Widmer Brothers">
   </div>
   <div>
    <label>Price:</label>
-   <input #newPrice>
+   <input #newPrice placeholder="$6.00 per pint">
   </div>
   <div>
    <label>Alcohol Content:</label>
-   <input #newAlcoholContent>
+   <input #newAlcoholContent placeholder="5.3% ABV">
   </div>
   <div>
    <label>Pints Available:</label>
-   <input #newPintsRemaining>
+   <input #newPintsRemaining value="124">
   </div>
-    <button (click)="submitForm(newName.value, newBrand.value, newPrice.value, newAlcoholContent.value, newPintsRemaining.value); newName.value=''; newBrand.value=''; newPrice.value=''; newAlcoholContent.value=''; newPintsRemaining.value='';">Add Keg</button>
+    <button class="btn btn-dark" (click)="submitForm(newName.value, newBrand.value, newPrice.value, newAlcoholContent.value, newPintsRemaining.value); newName.value=''; newBrand.value=''; newPrice.value=''; newAlcoholContent.value=''; newPintsRemaining.value='';">Add Keg</button>
    </div>
 </div>

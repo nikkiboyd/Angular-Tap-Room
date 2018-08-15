@@ -14,6 +14,10 @@ export class TapRoomComponent {
     this.clickSender.emit(kegToEdit);
   }
 
+  sellPint(kegToSellFrom: Keg) {
+    kegToSellFrom.pintsRemaining -= 1;
+  }
+
   emptinessColor(currentKeg) {
     if (currentKeg.pintsRemaining <= 10) {
       return "bg-danger";
@@ -34,5 +38,6 @@ export class TapRoomComponent {
 
   toggleEmpty(clickedKeg: Keg, setEmptiness: boolean) {
     clickedKeg.emptiness = setEmptiness;
+    clickedKeg.pintsRemaining = 0;
   }
 }
