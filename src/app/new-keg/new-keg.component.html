@@ -1,0 +1,26 @@
+<div class="stack">
+  <div class="newKeg">
+   <h1>New Keg</h1>
+   <div>
+   <label>Brew Name:</label>
+   <input #newName>
+  </div>
+  <div>
+   <label>Brand:</label>
+   <input #newBrand>
+  </div>
+  <div>
+   <label>Price:</label>
+   <input #newPrice>
+  </div>
+  <div>
+   <label>Alcohol Content:</label>
+   <input #newAlcoholContent>
+  </div>
+  <div>
+   <label>Pints Available:</label>
+   <input #newPintsRemaining>
+  </div>
+    <button (click)="submitForm(newName.value, newBrand.value, newPrice.value, newAlcoholContent.value, newPintsRemaining.value); newName.value=''; newBrand.value=''; newPrice.value=''; newAlcoholContent.value=''; newPintsRemaining.value='';">Add Keg</button>
+   </div>
+</div>

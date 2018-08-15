@@ -1,0 +1,20 @@
+<div class="select">
+<select (change)="onChange($event.target.value)">
+  <option value="allKegs">All Kegs</option>
+  <option value="kegsToFill">Low Kegs</option>
+  <option value="fullKegs" selected="selected">Full Kegs</option>
+</select>
+</div>
+<div class="stack">
+  <div class="keg" *ngFor="let currentKeg of childKegList | emptiness:filterByEmptiness">
+    <h2>{{currentKeg.name}}</h2>
+    <input *ngIf="currentKeg.emptiness === true" type="checkbox" checked (click)="toggleEmpty(currentKeg, false)"/>
+    <input *ngIf="currentKeg.emptiness === false" type="checkbox" (click)="toggleEmpty(currentKeg, true)"/>
+    <button (click)="editButtonClicked(currentKeg)" [class]="emptinessColor(currentKeg)">Edit</button>
+    <hr [class]="emptinessColor(currentKeg)">
+   <h4>Brewery: {{currentKeg.brand}}</h4>
+   <h4>Price: {{currentKeg.price}}</h4>
+   <h4>Alcohol Content: {{currentKeg.alcoholContent}}</h4>
+   <h4>Pints Remaining: {{currentKeg.pintsRemaining}}</h4>
+  </div>
+</div>
