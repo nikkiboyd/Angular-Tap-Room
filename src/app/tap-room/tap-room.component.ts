@@ -19,18 +19,18 @@ export class TapRoomComponent {
   }
 
   emptinessColor(currentKeg) {
-    if (currentKeg.pintsRemaining <= 10) {
-      return "bg-danger";
-    } else if (currentKeg.pintsRemaining <= 60) {
-      return "bg-warning";
+    if (currentKeg.pintsRemaining <= 25) {
+      return "btn btn-danger";
+    } else if (currentKeg.pintsRemaining <= 75) {
+      return "btn btn-warning";
     } else if (currentKeg.pintsRemaining <= 124) {
-      return "bg-success";
+      return "btn btn-success";
     } else {
-      return "bg-primary";
+      return "btn btn-primary";
     }
   }
 
-  filterByEmptiness: string = "kegsToFill";
+  filterByEmptiness: string = "allKegs";
 
   onChange(optionFromMenu) {
     this.filterByEmptiness = optionFromMenu;

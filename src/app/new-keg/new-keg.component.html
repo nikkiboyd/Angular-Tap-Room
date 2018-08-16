@@ -11,15 +11,15 @@
   </div>
   <div>
    <label>Price:</label>
-   <input #newPrice placeholder="$6.00 per pint">
+   <input #newPrice placeholder="$6.00 per pint" type="number">
   </div>
   <div>
    <label>Alcohol Content:</label>
-   <input #newAlcoholContent placeholder="5.3% ABV">
+   <input #newAlcoholContent placeholder="5.3" type="number">
   </div>
   <div>
    <label>Pints Available:</label>
-   <input #newPintsRemaining value="124">
+   <input #newPintsRemaining value="124" type="number">
   </div>
     <button class="btn btn-dark" (click)="submitForm(newName.value, newBrand.value, newPrice.value, newAlcoholContent.value, newPintsRemaining.value); newName.value=''; newBrand.value=''; newPrice.value=''; newAlcoholContent.value=''; newPintsRemaining.value='';">Add Keg</button>
    </div>

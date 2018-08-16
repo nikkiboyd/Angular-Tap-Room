@@ -10,11 +10,32 @@ import { Keg } from './models/keg.model';
 export class AppComponent {
   masterKegList: Keg[] = [
     new Keg(
-      'IPA',
+      'Drop Top Amber Ale',
       'Widmer Brothers',
       5,
-      '5.0%',
-      100)
+      '5.0',
+      100),
+
+      new Keg(
+        'Workhorse Lager',
+        'HUB Brewing Co.',
+        6,
+        '6.2',
+        40),
+
+      new Keg(
+        'The Vaporizer',
+        'Double Mountain Brewery',
+        8,
+        '7.9',
+        80),
+
+      new Keg(
+        'Chainbreaker White IPA',
+        'Deschutes Brewery',
+        9,
+        '9.3',
+        10),
   ];
 
   selectedKeg = null;

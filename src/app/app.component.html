@@ -1,5 +1,6 @@
 <div class="parallax">
-<app-tap-room [childKegList]="masterKegList" (clickSender)="editKeg($event)"></app-tap-room>
-<app-edit-keg [childSelectedKegEdit]="selectedKeg" (clickedDone)="finishedEditing()"></app-edit-keg>
-<app-new-keg (sendKeg)="addKeg($event)"></app-new-keg>
+  <div ng-show="newKeg">
+  <app-tap-room [childKegList]="masterKegList" (clickSender)="editKeg($event)" ng-model="myKegs"></app-tap-room>
+  <app-new-keg (sendKeg)="addKeg($event)"></app-new-keg>
+  <app-edit-keg [childSelectedKegEdit]="selectedKeg" (clickedDone)="finishedEditing()" ng-model="editKeg"></app-edit-keg>
 </div>

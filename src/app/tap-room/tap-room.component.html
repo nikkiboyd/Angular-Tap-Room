@@ -1,24 +1,29 @@
-<div class="select">
-  <select (change)="onChange($event.target.value)">
-    <option value="allKegs">All Kegs</option>
-    <option value="kegsToFill">Low Kegs</option>
-    <option value="fullKegs" selected="selected">Full Kegs</option>
-  </select>
-</div>
-<div class="stack">
-  <div class="keg card" *ngFor="let currentKeg of childKegList | emptiness:filterByEmptiness">
-    <h2>{{currentKeg.name}}</h2>
-    <button (click)="editButtonClicked(currentKeg)" [class]="emptinessColor(currentKeg)">Edit</button>
-    <hr [class]="emptinessColor(currentKeg)">
-     <h4>Brewery: {{currentKeg.brand}}</h4>
-     <h4>Price: {{currentKeg.price}}</h4>
-     <h4>Alcohol Content: {{currentKeg.alcoholContent}}</h4>
-     <h4>Pints Remaining: {{currentKeg.pintsRemaining}}</h4>
-     <div class="form-group">
-       <label>Reserved for rental?</label>
-       <input *ngIf="currentKeg.emptiness === true" type="checkbox" checked (click)="toggleEmpty(currentKeg, false)"/>
-       <input *ngIf="currentKeg.emptiness === false" type="checkbox" (click)="toggleEmpty(currentKeg, true)"/>
+<div class="container">
+  <div class="select">
+    <h5>Filter by:</h5>
+    <select (change)="onChange($event.target.value)">
+      <option value="allKegs">All Kegs</option>
+      <option value="reserved">Reserved Kegs</option>
+      <option value="kegsToFill">Low Kegs</option>
+      <option value="fullKegs">Full Kegs</option>
+    </select>
+  </div>
+
+  <div class="stack">
+    <div class="keg card" *ngFor="let currentKeg of childKegList | emptiness:filterByEmptiness">
+      <h4>{{currentKeg.name}}</h4>
+       <h6>{{currentKeg.brand}}</h6>
+       <h6>${{currentKeg.price}} per pint</h6>
+       <h6>{{currentKeg.alcoholContent}}% ABV</h6>
+       <h6>{{currentKeg.pintsRemaining}} pints remaining</h6>
+       <div class="form-group">
+         <label>Reserved for rental?</label>
+         <input *ngIf="currentKeg.emptiness === true" type="checkbox" checked (click)="toggleEmpty(currentKeg, false)"/>
+         <input *ngIf="currentKeg.emptiness === false" type="checkbox" (click)="toggleEmpty(currentKeg, true)"/>
+      </div>
+      <button [class]="emptinessColor(currentKeg)" (click)="sellPint(currentKeg)">Sell Pint</button>
+      <br>
+      <button (click)="editButtonClicked(currentKeg)" class="btn btn-dark">Edit</button>
     </div>
-    <button (click)="sellPint(currentKeg)" class="btn btn-dark">Sell Pint</button>
   </div>
 </div>
